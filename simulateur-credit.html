@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Simulateur de crédit immobilier au Maroc par Elkoutami Immobilier. Calculez vos mensualités en Dirhams (MAD) et les frais notariés d'acquisition.">
+  <title>Simulateur de Crédit Immobilier Maroc | Elkoutami Immobilier</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .sim-hero {
+      background: linear-gradient(135deg, rgba(10, 25, 47, 0.94), rgba(10, 25, 47, 0.96)),
+                  url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80') center/cover;
+      color: #FFFFFF;
+      padding: 70px 0;
+      text-align: center;
+    }
+    .bank-logos-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .bank-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      text-align: center;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 70px;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 768px) {
+      .bank-logos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <aside class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-left">
+        <div class="top-bar-item"><i class="fa-solid fa-phone"></i> +212 (0) 5 22 98 76 54</div>
+        <div class="top-bar-item"><i class="fa-brands fa-whatsapp"></i> +212 (0) 6 61 12 34 56 (WhatsApp VIP)</div>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-bar-item"><span>Lun - Sam : 09:00 - 19:30</span></div>
+        <div class="top-bar-item" style="color: var(--gold); font-weight: 700;">MAD (DH) | EUR (€)</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-symbol">E</div>
+          <div class="logo-text">
+            <span class="logo-title">ELKOUTAMI<span>.</span></span>
+            <span class="logo-subtitle">Immobilier de Prestige • Maroc</span>
+          </div>
+        </a>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Accueil</a></li>
+          <li><a href="properties.html" class="nav-link">Propriétés</a></li>
+          <li><a href="index.html#villes" class="nav-link">Destinations</a></li>
+          <li><a href="simulateur-credit.html" class="nav-link active">Simulateur Crédit</a></li>
+          <li><a href="index.html#estimation" class="nav-link">Estimation</a></li>
+          <li><a href="a-propos.html" class="nav-link">À Propos & MRE</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="nav-icon-btn" onclick="openFavoritesDrawer()" title="Mes Favoris">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-count" id="favoritesCount" style="display: none;">0</span>
+          </button>
+          <a href="index.html#estimation" class="btn btn-gold btn-sm">Estimer mon bien</a>
+          <button class="hamburger-btn" id="hamburgerBtn"><i class="fa-solid fa-bars"></i></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <div class="sim-hero">
+    <div class="container">
+      <span class="section-tag" style="background: rgba(197, 168, 128, 0.2); color: var(--gold-light);">Financement Bancaire Marocain</span>
+      <h1 style="font-family: var(--font-serif); font-size: 2.8rem; margin: 12px 0;">Simulateur de Crédit Immobilier au Maroc</h1>
+      <p style="color: #CBD5E1; max-width: 680px; margin: 0 auto;">
+        Estimez vos mensualités en Dirhams (MAD), les frais de notaire et droits d'enregistrement conformément aux barèmes fiscaux marocains.
+      </p>
+    </div>
+  </div>
+
+  <!-- Calculator Section -->
+  <section class="section-calculator" style="background: var(--bg-sand); color: var(--text-main); padding: 80px 0;">
+    <div class="container">
+      <div class="calc-grid">
+        <!-- Controls -->
+        <div class="calc-box" style="background: #FFFFFF; border: 1px solid #E2E8F0; box-shadow: var(--shadow-sm);">
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--primary); margin-bottom: 24px;">Paramètres du Financement</h3>
+
+          <div class="calc-input-group">
+            <div class="calc-label-row">
+              <span class="calc-label" style="color: var(--text-main);"><i class="fa-solid fa-tag text-gold"></i> Prix du bien immobilier</span>
+              <span class="calc-value-display" id="calcPriceDisplay" style="color: var(--primary);">8 000 000 MAD</span>
+            </div>
+            <input type="range" class="range-slider" id="calcPrice" min="1000000" max="30000000" step="250000" value="8000000">
+          </div>
+
+          <div class="calc-input-group">
+            <div class="calc-label-row">
+              <span class="calc-label" style="color: var(--text-main);"><i class="fa-solid fa-wallet text-gold"></i> Apport personnel</span>
+              <span class="calc-value-display" id="calcDownDisplay" style="color: var(--primary);">20% (1 600 000 MAD)</span>
+            </div>
+            <input type="range" class="range-slider" id="calcDownPayment" min="10" max="60" step="5" value="20">
+          </div>
+
+          <div class="calc-input-group">
+            <div class="calc-label-row">
+              <span class="calc-label" style="color: var(--text-main);"><i class="fa-solid fa-calendar text-gold"></i> Durée du prêt</span>
+              <span class="calc-value-display" id="calcDurationDisplay" style="color: var(--primary);">20 ans (240 mois)</span>
+            </div>
+            <input type="range" class="range-slider" id="calcDuration" min="7" max="25" step="1" value="20">
+          </div>
+
+          <div class="calc-input-group" style="margin-bottom: 0;">
+            <div class="calc-label-row">
+              <span class="calc-label" style="color: var(--text-main);"><i class="fa-solid fa-percent text-gold"></i> Taux d'intérêt annuel moyen</span>
+              <span class="calc-value-display" id="calcRateDisplay" style="color: var(--primary);">4.75% HT</span>
+            </div>
+            <input type="range" class="range-slider" id="calcRate" min="3.8" max="6.5" step="0.05" value="4.75">
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div class="calc-result-box">
+          <div class="calc-result-badge">Bilan Financier</div>
+
+          <div class="calc-monthly-heading">Mensualité Estimée</div>
+          <div class="calc-monthly-value" id="calcMonthlyPayment">41 370 MAD</div>
+          <div class="calc-monthly-sub">Soit environ ~3 830 € / mois</div>
+
+          <div class="calc-fee-breakdown">
+            <div class="calc-fee-item">
+              <span>Montant financé par la banque :</span>
+              <strong id="calcLoanAmount">6 400 000 MAD</strong>
+            </div>
+            <div class="calc-fee-item">
+              <span>Intérêts totaux sur la durée :</span>
+              <strong id="calcTotalInterest">3 528 800 MAD</strong>
+            </div>
+            <div class="calc-fee-item">
+              <span>Frais d'acquisition & notaire (~6.7%) :</span>
+              <strong id="calcNotaryFees">536 200 MAD</strong>
+            </div>
+          </div>
+
+          <div class="calc-notary-notice">
+            <strong>Détail fiscal au Maroc :</strong>
+            <ul style="margin-top: 6px; padding-left: 18px; line-height: 1.6; list-style-type: disc;">
+              <li>Enregistrement (DGI) : 4%</li>
+              <li>Conservation Foncière (ANCFCC) : 1.5% + 200 DH</li>
+              <li>Honoraires Notaire & TVA : ~1.2%</li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/212661123456?text=Bonjour%20Elkoutami%20Immobilier%2C%20je%20souhaite%20une%20mise%20en%20relation%20pour%20mon%20financement%20bancaire." target="_blank" class="btn btn-gold" style="width: 100%;">
+            <i class="fa-brands fa-whatsapp"></i> Transmettre mon dossier à un conseiller financier
+          </a>
+        </div>
+      </div>
+
+      <!-- Partner Banks in Morocco -->
+      <div style="margin-top: 60px;">
+        <h4 style="font-family: var(--font-serif); font-size: 1.3rem; text-align: center; color: var(--primary); margin-bottom: 8px;">
+          Nos Établissements Bancaires Partenaires au Maroc
+        </h4>
+        <p style="text-align: center; font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 24px;">
+          Elkoutami Immobilier négocie directement avec les pôles Banque Privée & Gestion de Fortune pour vous obtenir les conditions de taux les plus avantageuses du marché.
+        </p>
+
+        <div class="bank-logos-grid">
+          <div class="bank-card"><i class="fa-solid fa-building-columns text-gold" style="margin-right: 8px;"></i> Attijariwafa bank</div>
+          <div class="bank-card"><i class="fa-solid fa-building-columns text-gold" style="margin-right: 8px;"></i> Banque Populaire (BCP)</div>
+          <div class="bank-card"><i class="fa-solid fa-building-columns text-gold" style="margin-right: 8px;"></i> Bank of Africa (BMCE)</div>
+          <div class="bank-card"><i class="fa-solid fa-building-columns text-gold" style="margin-right: 8px;"></i> CIH Bank</div>
+          <div class="bank-card"><i class="fa-solid fa-building-columns text-gold" style="margin-right: 8px;"></i> CFG Bank</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Favorites Drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="closeFavoritesDrawer()"></div>
+  <aside class="favorites-drawer" id="favoritesDrawer">
+    <div class="drawer-header">
+      <div class="drawer-title"><i class="fa-solid fa-heart" style="color: var(--gold);"></i> Mes Favoris</div>
+      <button onclick="closeFavoritesDrawer()" style="color: #FFFFFF; font-size: 1.3rem;"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body" id="drawerItemsList"></div>
+    <div class="drawer-footer">
+      <button id="shareFavBtn" class="btn btn-gold" style="width: 100%; display: none;" onclick="shareFavoritesWhatsApp()">
+        <i class="fa-brands fa-whatsapp"></i> Envoyer ma sélection WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- Floating WhatsApp -->
+  <div class="floating-whatsapp">
+    <a href="https://wa.me/212661123456" target="_blank" class="whatsapp-circle-btn" title="WhatsApp VIP">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <footer class="footer">
+    <div class="container" style="text-align: center;">
+      <p>&copy; 2026 Elkoutami Immobilier. Tous droits réservés. L'Art de Vivre d'Exception au Maroc.</p>
+    </div>
+  </footer>
+
+  <script src="js/properties-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+

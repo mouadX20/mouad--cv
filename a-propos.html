@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Découvrez l'histoire, les valeurs d'excellence et l'équipe dirigeante d'Elkoutami Immobilier, leader de l'immobilier de prestige au Maroc.">
+  <title>À Propos & Accompagnement MRE | Elkoutami Immobilier</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .about-hero {
+      background: linear-gradient(135deg, rgba(10, 25, 47, 0.94), rgba(10, 25, 47, 0.96)),
+                  url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1920&q=80') center/cover;
+      color: #FFFFFF;
+      padding: 80px 0;
+      text-align: center;
+    }
+    .about-story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding: 90px 0;
+    }
+    .story-img-wrap {
+      position: relative;
+    }
+    .story-img-wrap img {
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+    }
+    .story-img-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--primary);
+      border: 2px solid var(--gold);
+      padding: 20px 28px;
+      border-radius: var(--radius-sm);
+      color: #FFFFFF;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 60px 0 90px;
+    }
+    .pillar-card {
+      background: #FFFFFF;
+      padding: 32px 24px;
+      border-radius: var(--radius-md);
+      border: 1px solid #E2E8F0;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .pillar-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold);
+      box-shadow: var(--shadow-md);
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .team-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid #E2E8F0;
+      transition: var(--transition);
+      text-align: center;
+    }
+    .team-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-light);
+    }
+    .team-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+    .team-info {
+      padding: 24px;
+    }
+    @media (max-width: 992px) {
+      .about-story-grid {
+        grid-template-columns: 1fr;
+      }
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+      .story-img-badge {
+        position: static;
+        margin-top: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <aside class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-left">
+        <div class="top-bar-item"><i class="fa-solid fa-phone"></i> +212 (0) 5 22 98 76 54</div>
+        <div class="top-bar-item"><i class="fa-brands fa-whatsapp"></i> +212 (0) 6 61 12 34 56 (WhatsApp VIP)</div>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-bar-item"><span>Lun - Sam : 09:00 - 19:30</span></div>
+        <div class="top-bar-item" style="color: var(--gold); font-weight: 700;">MAD (DH) | EUR (€)</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-symbol">E</div>
+          <div class="logo-text">
+            <span class="logo-title">ELKOUTAMI<span>.</span></span>
+            <span class="logo-subtitle">Immobilier de Prestige • Maroc</span>
+          </div>
+        </a>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Accueil</a></li>
+          <li><a href="properties.html" class="nav-link">Propriétés</a></li>
+          <li><a href="index.html#villes" class="nav-link">Destinations</a></li>
+          <li><a href="index.html#simulateur" class="nav-link">Simulateur Crédit</a></li>
+          <li><a href="index.html#estimation" class="nav-link">Estimation</a></li>
+          <li><a href="a-propos.html" class="nav-link active">À Propos & MRE</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="nav-icon-btn" onclick="openFavoritesDrawer()" title="Mes Favoris">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-count" id="favoritesCount" style="display: none;">0</span>
+          </button>
+          <a href="index.html#estimation" class="btn btn-gold btn-sm">Estimer mon bien</a>
+          <button class="hamburger-btn" id="hamburgerBtn"><i class="fa-solid fa-bars"></i></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- About Hero -->
+  <div class="about-hero">
+    <div class="container">
+      <span class="section-tag" style="background: rgba(197, 168, 128, 0.2); color: var(--gold-light);">Notre Maison</span>
+      <h1 style="font-family: var(--font-serif); font-size: 3rem; margin: 12px 0;">L'Excellence Immobilière au Maroc</h1>
+      <p style="color: #CBD5E1; max-width: 700px; margin: 0 auto; font-size: 1.1rem;">
+        Depuis plus de 15 ans, le cabinet Elkoutami Immobilier accompagne une clientèle exigeante marocaine et internationale dans la concrétisation de projets immobiliers d'exception.
+      </p>
+    </div>
+  </div>
+
+  <!-- Story Section -->
+  <section class="container">
+    <div class="about-story-grid">
+      <div>
+        <span class="section-tag">Notre Histoire</span>
+        <h2 class="section-title">Une Vision Élevée du Patrimoine Marocain</h2>
+        <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 16px;">
+          Fondé à Casablanca au cœur du quartier Racine par la famille Elkoutami, notre cabinet est né d'une conviction profonde : le marché immobilier marocain de prestige méritait un niveau d'exigence, de rigueur juridique et de confidentialité équivalent aux plus grandes places internationales telles que Paris, Genève ou Londres.
+        </p>
+        <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 24px;">
+          En combinant une parfaite maîtrise du droit foncier marocain (Conservation Foncière, fiscalité, décrets de non-agricole) à une discrétion absolue, Elkoutami Immobilier est devenu l'interlocuteur privilégié des familles d'industriels marocains, des cadres dirigeants, des diplomates et de la diaspora MRE.
+        </p>
+        <div style="display: flex; gap: 20px; align-items: center;">
+          <div style="border-left: 3px solid var(--gold); padding-left: 16px;">
+            <div style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; color: var(--primary);">+850</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Actes Authentiques Signés</div>
+          </div>
+          <div style="border-left: 3px solid var(--gold); padding-left: 16px;">
+            <div style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; color: var(--primary);">100%</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Titres Fonciers ANCFCC</div>
+          </div>
+        </div>
+      </div>
+      <div class="story-img-wrap">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Villa de prestige Maroc">
+        <div class="story-img-badge">
+          <div style="font-family: var(--font-serif); font-size: 2rem; font-weight: 800; color: var(--gold-light);">2009</div>
+          <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Année de Fondation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Pillars Section -->
+  <section style="background: #FFFFFF; padding: 80px 0;">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">Nos Engagements</span>
+        <h2 class="section-title">Les 4 Piliers Fondateurs Elkoutami</h2>
+        <p class="section-subtitle">
+          Chaque mandat confié à notre cabinet fait l'objet d'un protocole d'audit et de diligence intransigeant.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div style="font-size: 2.2rem; color: var(--gold-dark); margin-bottom: 16px;"><i class="fa-solid fa-stamp"></i></div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--primary); margin-bottom: 10px;">100% Titres Fonciers</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+            Nous refusons tout bien dont la situation cadastrale présente un aléa. Chaque propriété est vérifiée auprès de l'ANCFCC.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div style="font-size: 2.2rem; color: var(--gold-dark); margin-bottom: 16px;"><i class="fa-solid fa-user-secret"></i></div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--primary); margin-bottom: 10px;">Discrétion & Secret</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+            Accords de confidentialité stricts (NDA) pour les transactions haut de gamme et mandats confidentiels "Off-Market".
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div style="font-size: 2.2rem; color: var(--gold-dark); margin-bottom: 16px;"><i class="fa-solid fa-plane-departure"></i></div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--primary); margin-bottom: 10px;">Guichet Dédié MRE</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+            Prise en charge à distance de A à Z : procurations notariées, visites vidéo live, coordination bancaire et fiscale au Maroc.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div style="font-size: 2.2rem; color: var(--gold-dark); margin-bottom: 16px;"><i class="fa-solid fa-building-columns"></i></div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--primary); margin-bottom: 10px;">Notaires Partenaires</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+            Collaboration étroite avec les plus éminentes études notariales de Casablanca, Marrakech et Rabat pour des signatures sécurisées.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Team -->
+  <section style="padding: 90px 0; background: var(--bg-sand);">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">Direction & Associés</span>
+        <h2 class="section-title">L'Équipe Dirigeante</h2>
+        <p class="section-subtitle">
+          Des professionnels chevronnés partageant la passion de l'architecture marocaine et de l'excellence de service.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="Taha Elkoutami" class="team-img">
+          <div class="team-info">
+            <h3 style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--primary);">Taha Elkoutami</h3>
+            <div style="font-size: 0.85rem; color: var(--gold-dark); font-weight: 700; margin: 4px 0 12px; text-transform: uppercase;">
+              Fondateur & Directeur Général
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+              Diplômé en Droit des Affaires et Gestion de Patrimoine. Plus de 18 années d'expertise dans les transactions de prestige à Casablanca et Rabat.
+            </p>
+            <a href="https://wa.me/212661123456" target="_blank" class="btn btn-outline-gold btn-sm" style="width: 100%;">
+              <i class="fa-brands fa-whatsapp"></i> Contacter directement
+            </a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Sofia Benjelloun" class="team-img">
+          <div class="team-info">
+            <h3 style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--primary);">Sofia Benjelloun</h3>
+            <div style="font-size: 0.85rem; color: var(--gold-dark); font-weight: 700; margin: 4px 0 12px; text-transform: uppercase;">
+              Directrice Associée Marrakech & Sud
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+              Spécialiste incontestée des palais de la Palmeraie, des riads historiques et des dossiers VNA pour la clientèle étrangère à Marrakech.
+            </p>
+            <a href="https://wa.me/212662987654" target="_blank" class="btn btn-outline-gold btn-sm" style="width: 100%;">
+              <i class="fa-brands fa-whatsapp"></i> Contacter directement
+            </a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Mehdi Alami" class="team-img">
+          <div class="team-info">
+            <h3 style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--primary);">Mehdi Alami</h3>
+            <div style="font-size: 0.85rem; color: var(--gold-dark); font-weight: 700; margin: 4px 0 12px; text-transform: uppercase;">
+              Directeur Associé Rabat & Région Nord
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+              Expert des résidences d'ambassades à Souissi et des propriétés d'exception surplombant le Détroit de Gibraltar à Tanger.
+            </p>
+            <a href="https://wa.me/212663456789" target="_blank" class="btn btn-outline-gold btn-sm" style="width: 100%;">
+              <i class="fa-brands fa-whatsapp"></i> Contacter directement
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Favorites Drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="closeFavoritesDrawer()"></div>
+  <aside class="favorites-drawer" id="favoritesDrawer">
+    <div class="drawer-header">
+      <div class="drawer-title"><i class="fa-solid fa-heart" style="color: var(--gold);"></i> Mes Favoris</div>
+      <button onclick="closeFavoritesDrawer()" style="color: #FFFFFF; font-size: 1.3rem;"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body" id="drawerItemsList"></div>
+    <div class="drawer-footer">
+      <button id="shareFavBtn" class="btn btn-gold" style="width: 100%; display: none;" onclick="shareFavoritesWhatsApp()">
+        <i class="fa-brands fa-whatsapp"></i> Envoyer ma sélection WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- Floating WhatsApp -->
+  <div class="floating-whatsapp">
+    <a href="https://wa.me/212661123456" target="_blank" class="whatsapp-circle-btn" title="WhatsApp VIP">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <footer class="footer">
+    <div class="container" style="text-align: center;">
+      <p>&copy; 2026 Elkoutami Immobilier. Tous droits réservés. L'Art de Vivre d'Exception au Maroc.</p>
+    </div>
+  </footer>
+
+  <script src="js/properties-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+
