@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Elkoutami Immobilier - Leader de l'immobilier de prestige au Maroc. Vente et location de villas de luxe, riads d'exception, penthouses et appartements de standing à Casablanca, Marrakech, Rabat et Tanger.">
+  <meta name="keywords" content="immobilier maroc, villa marrakech, penthouse casablanca, riad palmeraie, immobilier luxe rabat, elkoutami immobilier, achat villa maroc, vente appartement casablanca">
+  <meta name="author" content="Elkoutami Immobilier">
+  <title>Elkoutami Immobilier | L'Excellence Immobilière au Maroc</title>
+
+  <!-- Google Fonts: Cinzel (Serif Royal) & Plus Jakarta Sans (Modern Clean) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6.5.1 CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       TOP BAR
+       ========================================================================== -->
+  <aside class="top-bar" aria-label="Informations pratiques">
+    <div class="container top-bar-content">
+      <div class="top-bar-left">
+        <div class="top-bar-item">
+          <i class="fa-solid fa-phone"></i>
+          <a href="tel:+212522987654">+212 (0) 5 22 98 76 54</a>
+        </div>
+        <div class="top-bar-item">
+          <i class="fa-brands fa-whatsapp"></i>
+          <a href="https://wa.me/212661123456" target="_blank" rel="noopener noreferrer">+212 (0) 6 61 12 34 56 (WhatsApp VIP)</a>
+        </div>
+        <div class="top-bar-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Agences : Boulevard d'Anfa, Casablanca • L'Hivernage, Marrakech</span>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-bar-item">
+          <i class="fa-regular fa-clock"></i>
+          <span>Lun - Sam : 09:00 - 19:30</span>
+        </div>
+        <div class="top-bar-item" style="border-left: 1px solid rgba(255,255,255,0.15); padding-left: 16px;">
+          <span style="color: var(--gold); font-weight: 700;">MAD (DH)</span>
+          <span style="opacity: 0.5;">|</span>
+          <span style="opacity: 0.8;">EUR (€)</span>
+        </div>
+        <div class="top-bar-item" style="font-size: 0.8rem; font-weight: 600; color: var(--gold-light);">
+          <span>FR</span> | <span style="opacity: 0.6;">العربية</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN NAVIGATION BAR
+       ========================================================================== -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar" aria-label="Navigation principale">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo" aria-label="Elkoutami Immobilier Accueil">
+          <div class="logo-symbol">E</div>
+          <div class="logo-text">
+            <span class="logo-title">ELKOUTAMI<span>.</span></span>
+            <span class="logo-subtitle">Immobilier de Prestige • Maroc</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#hero" class="nav-link active">Accueil</a></li>
+          <li><a href="#catalogue" class="nav-link">Propriétés</a></li>
+          <li><a href="#villes" class="nav-link">Destinations</a></li>
+          <li><a href="#simulateur" class="nav-link">Simulateur Crédit</a></li>
+          <li><a href="#estimation" class="nav-link">Estimation</a></li>
+          <li><a href="#services" class="nav-link">Services & MRE</a></li>
+          <li><a href="#temoignages" class="nav-link">Avis</a></li>
+          <li><a href="#contact" class="nav-link">Agences</a></li>
+        </ul>
+
+        <!-- Action buttons -->
+        <div class="nav-actions">
+          <button class="nav-icon-btn" onclick="openFavoritesDrawer()" aria-label="Consulter mes favoris" title="Mes Favoris">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-count" id="favoritesCount" style="display: none;">0</span>
+          </button>
+          <a href="#estimation" class="btn btn-gold btn-sm" style="display: inline-flex;">
+            <i class="fa-solid fa-calculator"></i>
+            <span>Estimer mon bien</span>
+          </a>
+          <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu mobile">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <section class="hero" id="hero">
+    <div class="hero-overlay-pattern"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-crown" style="color: var(--gold);"></i>
+        <span>L'Excellence Immobilière au Royaume du Maroc</span>
+      </div>
+
+      <h1 class="hero-title">
+        L'Art de Vivre d'Exception <br>
+        <span class="text-gradient-gold">à Casablanca, Marrakech & Rabat</span>
+      </h1>
+
+      <p class="hero-description">
+        Cabinet d'excellence dédié à l'acquisition, la vente et l'investissement de villas d'architectes, riads historiques et penthouses d'exception. 100% de biens titrés rigoureusement audités.
+      </p>
+
+      <!-- Search Box with Tabs -->
+      <div class="hero-search-wrapper">
+        <div class="search-tabs">
+          <button type="button" class="search-tab-btn active" data-type="all" onclick="setSearchType('all', this)">
+            <i class="fa-solid fa-border-all"></i> Tous nos biens
+          </button>
+          <button type="button" class="search-tab-btn" data-type="vente" onclick="setSearchType('vente', this)">
+            <i class="fa-solid fa-key"></i> Acheter
+          </button>
+          <button type="button" class="search-tab-btn" data-type="location" onclick="setSearchType('location', this)">
+            <i class="fa-solid fa-calendar-days"></i> Louer
+          </button>
+          <button type="button" class="search-tab-btn" data-type="neuf" onclick="setSearchType('neuf', this)">
+            <i class="fa-solid fa-building-wheat"></i> Projets Neufs
+          </button>
+        </div>
+
+        <form class="search-fields-grid" onsubmit="searchProperties(event)">
+          <!-- City -->
+          <div class="search-field">
+            <label><i class="fa-solid fa-location-dot"></i> Ville / Région</label>
+            <div class="search-input-wrap">
+              <select class="search-select" id="searchCity">
+                <option value="all">Toutes les villes</option>
+                <option value="Casablanca">Casablanca (Anfa, Racine, Gauthier)</option>
+                <option value="Marrakech">Marrakech (Palmeraie, Hivernage)</option>
+                <option value="Rabat">Rabat (Souissi, Hay Riad)</option>
+                <option value="Tanger">Tanger (Marshan, Malabata)</option>
+                <option value="Bouskoura">Bouskoura (Ville Verte)</option>
+                <option value="Agadir">Agadir (Baie, Founty)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Type -->
+          <div class="search-field">
+            <label><i class="fa-solid fa-house"></i> Type de bien</label>
+            <div class="search-input-wrap">
+              <select class="search-select" id="searchType">
+                <option value="all">Tous les types</option>
+                <option value="villa">Villas & Domaines</option>
+                <option value="riad">Riads & Palais</option>
+                <option value="penthouse">Penthouses & Duplex</option>
+                <option value="appartement">Appartements de Maître</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Budget -->
+          <div class="search-field">
+            <label><i class="fa-solid fa-coins"></i> Budget Maximum</label>
+            <div class="search-input-wrap">
+              <select class="search-select" id="searchBudget">
+                <option value="all">Tous les budgets</option>
+                <option value="5000000">Jusqu'à 5 000 000 MAD</option>
+                <option value="10000000">Jusqu'à 10 000 000 MAD</option>
+                <option value="20000000">Jusqu'à 20 000 000 MAD</option>
+                <option value="35000000">Plus de 20 000 000 MAD</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Quick Action -->
+          <div class="search-field" style="align-self: flex-end;">
+            <button type="submit" class="btn btn-gold search-submit-btn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <span>Rechercher</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="hero-stats-row">
+        <div class="stat-card">
+          <div class="stat-number">+850</div>
+          <div class="stat-label">Propriétés Vendues</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Titres Fonciers Vérifiés</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">+1.8 Mrd</div>
+          <div class="stat-label">MAD en Volume de Transactions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">15 Ans</div>
+          <div class="stat-label">D'Excellence au Maroc</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FEATURED PROPERTIES CATALOG SECTION
+       ========================================================================== -->
+  <section class="section-properties" id="catalogue">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">Portefeuille de Prestige</span>
+        <h2 class="section-title">Nos Biens d'Exception au Maroc</h2>
+        <p class="section-subtitle">
+          Une sélection rigoureuse des plus belles résidences privées, vérifiées sur le plan juridique et cadastral.
+        </p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="filter-pills-bar">
+        <button class="filter-pill active" data-filter="all">Tous les biens</button>
+        <button class="filter-pill" data-filter="villas-riads">Villas & Riads</button>
+        <button class="filter-pill" data-filter="penthouses-appartements">Penthouses & Appartements</button>
+        <button class="filter-pill" data-filter="bord-mer">Front de Mer & Océan</button>
+        <button class="filter-pill" data-filter="neuf">Programmes Neufs</button>
+      </div>
+
+      <!-- Dynamic Properties Grid -->
+      <div class="properties-grid" id="propertiesGrid">
+        <!-- Rendered dynamically by js/main.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MOROCCAN MORTGAGE SIMULATOR
+       ========================================================================== -->
+  <section class="section-calculator" id="simulateur">
+    <div class="container">
+      <div class="section-header-center" style="margin-bottom: 40px;">
+        <span class="section-tag" style="background: rgba(197, 168, 128, 0.2); color: var(--gold-light);">Outil d'Aide à la Décision</span>
+        <h2 class="section-title" style="color: #FFFFFF;">Simulateur de Crédit Immobilier au Maroc</h2>
+        <p class="section-subtitle" style="color: #CBD5E1;">
+          Calculez précisément vos mensualités bancaires en Dirhams marocains ainsi que les frais d'acquisition notariés en vigueur.
+        </p>
+      </div>
+
+      <div class="calc-grid">
+        <!-- Sliders Controls -->
+        <div class="calc-box">
+          <!-- Price slider -->
+          <div class="calc-input-group">
+            <div class="calc-label-row">
+              <span class="calc-label"><i class="fa-solid fa-tag text-gold"></i> Prix du bien (MAD)</span>
+              <span class="calc-value-display" id="calcPriceDisplay">8 000 000 MAD</span>
+            </div>
+            <input type="range" class="range-slider" id="calcPrice" min="1000000" max="30000000" step="250000" value="8000000">
+          </div>
+
+          <!-- Down payment slider -->
+          <div class="calc-input-group">
+            <div class="calc-label-row">
+              <span class="calc-label"><i class="fa-solid fa-wallet text-gold"></i> Apport personnel</span>
+              <span class="calc-value-display" id="calcDownDisplay">20% (1 600 000 MAD)</span>
+            </div>
+            <input type="range" class="range-slider" id="calcDownPayment" min="10" max="60" step="5" value="20">
+          </div>
+
+          <!-- Duration slider -->
+          <div class="calc-input-group">
+            <div class="calc-label-row">
+              <span class="calc-label"><i class="fa-solid fa-calendar text-gold"></i> Durée du financement</span>
+              <span class="calc-value-display" id="calcDurationDisplay">20 ans (240 mois)</span>
+            </div>
+            <input type="range" class="range-slider" id="calcDuration" min="7" max="25" step="1" value="20">
+          </div>
+
+          <!-- Interest rate slider -->
+          <div class="calc-input-group" style="margin-bottom: 0;">
+            <div class="calc-label-row">
+              <span class="calc-label"><i class="fa-solid fa-percent text-gold"></i> Taux bancaire moyen au Maroc</span>
+              <span class="calc-value-display" id="calcRateDisplay">4.75% HT</span>
+            </div>
+            <input type="range" class="range-slider" id="calcRate" min="3.8" max="6.5" step="0.05" value="4.75">
+            <div style="font-size: 0.75rem; color: #94A3B8; margin-top: 6px;">
+              *Taux indicatif des banques partenaires au Maroc (Attijariwafa bank, BCP, Bank of Africa, CIH).
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Result Card -->
+        <div class="calc-result-box">
+          <div class="calc-result-badge">Estimation Bancaire</div>
+
+          <div class="calc-monthly-heading">Mensualité Estimée</div>
+          <div class="calc-monthly-value" id="calcMonthlyPayment">41 370 MAD</div>
+          <div class="calc-monthly-sub">Hors assurance décès-invalidité et multirisque habitation</div>
+
+          <div class="calc-fee-breakdown">
+            <div class="calc-fee-item">
+              <span>Montant emprunté :</span>
+              <strong id="calcLoanAmount">6 400 000 MAD</strong>
+            </div>
+            <div class="calc-fee-item">
+              <span>Coût total des intérêts :</span>
+              <strong id="calcTotalInterest">3 528 800 MAD</strong>
+            </div>
+            <div class="calc-fee-item">
+              <span>Estimation frais d'acte & notaire (~6.7%) :</span>
+              <strong id="calcNotaryFees">536 200 MAD</strong>
+            </div>
+          </div>
+
+          <div class="calc-notary-notice">
+            <strong><i class="fa-solid fa-scale-balanced" style="color: var(--gold);"></i> Réglementation marocaine :</strong> Comprend l'enregistrement (4%), la conservation foncière (1.5% + 200 DH), ainsi que les honoraires notariés et la TVA.
+          </div>
+
+          <a href="https://wa.me/212661123456?text=Bonjour%20Elkoutami%20Immobilier%2C%20je%20souhaite%20une%20mise%20en%20relation%20bancaire%20pour%20un%20cr%C3%A9dit%20immobilier." target="_blank" class="btn btn-gold" style="width: 100%;">
+            <i class="fa-solid fa-file-invoice-dollar"></i> Transmettre à nos banques partenaires
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ONLINE ESTIMATION SECTION
+       ========================================================================== -->
+  <section class="section-estimation" id="estimation">
+    <div class="container">
+      <div class="estimation-card">
+        <!-- Visual left -->
+        <div class="estimation-visual">
+          <div>
+            <span class="section-tag" style="background: rgba(255,255,255,0.15); color: var(--gold-light); border-color: rgba(255,255,255,0.3);">Audit & Expertise</span>
+            <h2 style="font-family: var(--font-serif); font-size: 2.2rem; margin-top: 10px; line-height: 1.2;">
+              Faites estimer votre propriété au juste prix de marché
+            </h2>
+            <p style="color: #CBD5E1; font-size: 0.95rem; margin-top: 14px; line-height: 1.6;">
+              Bénéficiez de la méthodologie Elkoutami fondée sur plus de 850 transactions réelles au Maroc et une analyse pointue des dernières données du cadastre et des notaires.
+            </p>
+          </div>
+
+          <div style="background: rgba(255, 255, 255, 0.08); border-left: 3px solid var(--gold); padding: 18px; border-radius: 6px;">
+            <div style="font-weight: 700; font-size: 0.95rem; color: var(--gold-light); margin-bottom: 4px;">
+              Confidentialité Absolue Garantie
+            </div>
+            <div style="font-size: 0.82rem; color: #CBD5E1;">
+              Vos données restent strictement confidentielles. Aucun mandat ne vous engage à ce stade.
+            </div>
+          </div>
+        </div>
+
+        <!-- Form right -->
+        <div class="estimation-form-wrap">
+          <div class="step-indicator">
+            <div class="step-dot active"></div>
+            <div class="step-dot active"></div>
+            <div class="step-dot"></div>
+          </div>
+
+          <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--primary); margin-bottom: 20px;">
+            Caractéristiques de votre bien
+          </h3>
+
+          <form id="estimationForm">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label>Ville au Maroc</label>
+                <select class="form-control" id="estCity" required>
+                  <option value="Casablanca">Casablanca</option>
+                  <option value="Marrakech">Marrakech</option>
+                  <option value="Rabat">Rabat</option>
+                  <option value="Tanger">Tanger</option>
+                  <option value="Bouskoura">Bouskoura</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Type de bien</label>
+                <select class="form-control" id="estType" required>
+                  <option value="Villa contemporaine">Villa contemporaine</option>
+                  <option value="Riad ou Palais">Riad ou Palais</option>
+                  <option value="Penthouse / Duplex">Penthouse / Duplex</option>
+                  <option value="Appartement de standing">Appartement de standing</option>
+                  <option value="Terrain d'exception">Terrain d'exception</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label>Superficie approximative (m²)</label>
+                <input type="number" class="form-control" id="estArea" placeholder="Ex: 350" required min="30" max="15000">
+              </div>
+              <div class="form-group">
+                <label>Statut foncier</label>
+                <select class="form-control" id="estLegal">
+                  <option value="Titre Foncier (Conservation)">Titre Foncier Définitif (Requisition/Titre)</option>
+                  <option value="En cours d'immatriculation">En cours d'immatriculation</option>
+                  <option value="Melkia">Propriété coutumière (Melkia)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label>Votre Nom complet</label>
+                <input type="text" class="form-control" id="estName" placeholder="Ex: M. Mohammed Elkoutami" required>
+              </div>
+              <div class="form-group">
+                <label>Téléphone WhatsApp</label>
+                <input type="tel" class="form-control" id="estPhone" placeholder="+212 6..." required>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 10px;">
+              <i class="fa-solid fa-chart-line"></i> Obtenir mon estimation préliminaire
+            </button>
+          </form>
+
+          <div id="estimationResult" style="display: none;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       DESTINATIONS / MOROCCAN CITIES
+       ========================================================================== -->
+  <section class="section-cities" id="villes">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">Territoires d'Excellence</span>
+        <h2 class="section-title">Nos Villes Phares au Maroc</h2>
+        <p class="section-subtitle">
+          Explorez les marchés immobiliers les plus dynamiques et recherchés du Royaume.
+        </p>
+      </div>
+
+      <div class="cities-grid">
+        <!-- Casablanca -->
+        <div class="city-card" onclick="filterByCity('Casablanca')">
+          <img src="https://images.unsplash.com/photo-1577147443647-81856d5151af?auto=format&fit=crop&w=800&q=80" alt="Casablanca" class="city-img">
+          <div class="city-overlay">
+            <span class="city-badge">Capitale Économique</span>
+            <h3 class="city-name">Casablanca</h3>
+            <p class="city-districts">Anfa Supérieur, Triangle d'Or, Racine, Ain Diab</p>
+            <div class="city-meta">
+              <span><i class="fa-solid fa-building"></i> 42 Propriétés</span>
+              <span>Dès 4.5 M MAD <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marrakech -->
+        <div class="city-card" onclick="filterByCity('Marrakech')">
+          <img src="https://images.unsplash.com/photo-1597212618440-806262de4f6b?auto=format&fit=crop&w=800&q=80" alt="Marrakech" class="city-img">
+          <div class="city-overlay">
+            <span class="city-badge">La Ville Ocre</span>
+            <h3 class="city-name">Marrakech</h3>
+            <p class="city-districts">Palmeraie, Hivernage, Route de l'Ourika, Amelkis</p>
+            <div class="city-meta">
+              <span><i class="fa-solid fa-building"></i> 38 Propriétés</span>
+              <span>Dès 5.2 M MAD <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rabat -->
+        <div class="city-card" onclick="filterByCity('Rabat')">
+          <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80" alt="Rabat" class="city-img">
+          <div class="city-overlay">
+            <span class="city-badge">Capitale Royale</span>
+            <h3 class="city-name">Rabat</h3>
+            <p class="city-districts">Souissi, Hay Riad, Bir Kacem, Les Orangers</p>
+            <div class="city-meta">
+              <span><i class="fa-solid fa-building"></i> 26 Propriétés</span>
+              <span>Dès 6.8 M MAD <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tanger -->
+        <div class="city-card" onclick="filterByCity('Tanger')">
+          <img src="https://images.unsplash.com/photo-1569383746724-6f1b882b8f46?auto=format&fit=crop&w=800&q=80" alt="Tanger" class="city-img">
+          <div class="city-overlay">
+            <span class="city-badge">Porte de l'Europe</span>
+            <h3 class="city-name">Tanger</h3>
+            <p class="city-districts">Marshan, Cap Malabata, Vieille Montagne</p>
+            <div class="city-meta">
+              <span><i class="fa-solid fa-building"></i> 19 Propriétés</span>
+              <span>Dès 3.9 M MAD <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SERVICES & ACCOMPAGNEMENT MRE / ÉTRANGERS
+       ========================================================================== -->
+  <section class="section-services" id="services">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">Notre Savoir-Faire</span>
+        <h2 class="section-title">Services sur Mesure & Accompagnement VIP</h2>
+        <p class="section-subtitle">
+          De la première visite à la signature de l'acte authentique chez le notaire, Elkoutami Immobilier sécurise chaque étape.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="service-title">Sécurité Juridique & Conservation</h3>
+          <p class="service-desc">
+            Vérification scrupuleuse des titres fonciers à l'ANCFCC (Conservation Foncière), purge des hypothèques, conformité au plan d'aménagement urbain et attestations fiscales.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-passport"></i>
+          </div>
+          <h3 class="service-title">Accompagnement MRE & Non-Résidents</h3>
+          <p class="service-desc">
+            Guichet dédié pour les Marocains du Monde et investisseurs internationaux : gestion des comptes en dirhams convertibles, conformité Office des Changes et optimisation fiscale.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-user-secret"></i>
+          </div>
+          <h3 class="service-title">Mandats Confidentiels "Off-Market"</h3>
+          <p class="service-desc">
+            Accès privilégié à des propriétés d'exception non diffusées publiquement sur internet afin de garantir la plus haute discrétion aux familles et personnalités publiques.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-certificate"></i>
+          </div>
+          <h3 class="service-title">Autorisation VNA pour Étrangers</h3>
+          <p class="service-desc">
+            Expertise reconnue pour l'obtention de la Vocation Non Agricole (VNA) à Marrakech et dans les zones périurbaines pour les acquéreurs de nationalité étrangère.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+          </div>
+          <h3 class="service-title">Gestion Locative de Prestige</h3>
+          <p class="service-desc">
+            Prise en charge intégrale de vos biens : sélection d'expatriés ou diplomates de premier plan, rédaction des baux, encaissement des loyers et conciergerie privée.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-compass-drafting"></i>
+          </div>
+          <h3 class="service-title">Architecture & Rénovation Beldi-Chic</h3>
+          <p class="service-desc">
+            Mise en relation avec notre réseau d'architectes d'intérieur et maîtres artisans zelligiers/plâtriers pour sublimer votre villa ou réhabiliter un riad historique.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INTERACTIVE MAP SECTION
+       ========================================================================== -->
+  <section class="section-map" id="carte">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">Cartographie Exclusive</span>
+        <h2 class="section-title">Carte Interactive de nos Propriétés au Maroc</h2>
+        <p class="section-subtitle">
+          Visualisez l'emplacement stratégique de nos propriétés à travers le Maroc. Cliquez sur un marqueur pour consulter le détail du bien.
+        </p>
+      </div>
+
+      <div class="map-wrapper">
+        <div id="propertiesMap"></div>
+      </div>
+
+      <!-- Agencies addresses -->
+      <div class="agencies-row">
+        <div class="agency-card">
+          <div class="agency-icon"><i class="fa-solid fa-building"></i></div>
+          <div>
+            <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--primary);">Siège Casablanca • Racine</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 4px 0;">
+              Angle Boulevard d'Anfa & Rue Jean Jaurès, Résidence Al Manar, Casablanca
+            </p>
+            <div style="font-size: 0.85rem; font-weight: 600; color: var(--gold-dark);">
+              Tél : +212 5 22 98 76 54 • contact@elkoutami-immobilier.ma
+            </div>
+          </div>
+        </div>
+
+        <div class="agency-card">
+          <div class="agency-icon"><i class="fa-solid fa-landmark"></i></div>
+          <div>
+            <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--primary);">Agence Marrakech • Hivernage</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 4px 0;">
+              Avenue Mohammed VI, Résidence Prestige Hivernage, Marrakech
+            </p>
+            <div style="font-size: 0.85rem; font-weight: 600; color: var(--gold-dark);">
+              Tél : +212 5 24 43 21 00 • marrakech@elkoutami-immobilier.ma
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TESTIMONIALS SECTION
+       ========================================================================== -->
+  <section class="section-testimonials" id="temoignages">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag" style="background: rgba(197, 168, 128, 0.2); color: var(--gold-light);">Témoignages Vérifiés</span>
+        <h2 class="section-title" style="color: #FFFFFF;">La Confiance de nos Clients</h2>
+        <p class="section-subtitle" style="color: #CBD5E1;">
+          Découvrez les retours d'expérience d'acquéreurs, vendeurs et investisseurs qui ont accordé leur confiance à Elkoutami Immobilier.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "L'équipe d'Elkoutami Immobilier a orchestré l'achat de notre villa à Anfa Supérieur avec un niveau de rigueur et de discrétion remarquable. Toute la vérification juridique du titre foncier à la conservation et le suivi notarié ont été d'une fluidité exemplaire."
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Dr. Karim Berrada" class="author-avatar">
+            <div>
+              <div class="author-name">Dr. Karim Berrada</div>
+              <div class="author-info">Chirurgien & MRE • Casablanca Anfa</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "Notre recherche d'un palais dans la Palmeraie a duré plusieurs mois avant de rencontrer Monsieur Elkoutami. Son écoute, sa maîtrise des dossiers d'autorisation VNA et sa franchise ont fait toute la différence. Un accompagnement digne des plus grands cabinets mondiaux."
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Hélène de Saint-Ange" class="author-avatar">
+            <div>
+              <div class="author-name">Hélène de Saint-Ange</div>
+              <div class="author-info">Acquéreur International (Suisse) • Marrakech</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "La vente de ma propriété familiale à Souissi a été réalisée en moins de 60 jours au prix exact convenu. La sélection des acquéreurs était impeccable, aucune visite inutile. Je recommande Elkoutami Immobilier les yeux fermés."
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" alt="Mme Leila Chraïbi" class="author-avatar">
+            <div>
+              <div class="author-name">Mme Leila Chraïbi</div>
+              <div class="author-info">Chef d'Entreprise • Rabat Souissi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FAQ JURIDIQUE & IMMOBILIÈRE MAROCAINE
+       ========================================================================== -->
+  <section class="section-faq">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">Guide Pratique</span>
+        <h2 class="section-title">Questions Fréquentes sur l'Immobilier au Maroc</h2>
+        <p class="section-subtitle">
+          Tout ce que vous devez savoir pour investir sereinement au Royaume.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item active">
+          <div class="faq-question">
+            <span>Quelle est la différence entre un bien « Titré » et un bien en « Melkia » ?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Un bien « Titré » bénéficie d'un Titre Foncier délivré par l'Agence Nationale de la Conservation Foncière (ANCFCC). Il confère un droit de propriété inattaquable, avec bornage géomètre certifié. La Melkia est une possession coutumière basée sur des témoignages adoulaires. Chez <strong>Elkoutami Immobilier</strong>, nous commercialisons <strong>exclusivement des biens titrés</strong> ou accompagnons leur immatriculation définitive pour garantir 100% de sécurité à nos acquéreurs.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Quels sont les frais de notaire et taxes à l'achat au Maroc ?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Au Maroc, l'ensemble des frais d'acquisition représente environ <strong>6% à 7% du prix de vente</strong>. Ils se décomposent en : 4% de droits d'enregistrement au profit de la Direction Générale des Impôts, 1.5% (+ 200 DH) pour la Conservation Foncière, et environ 1% à 1.5% d'honoraires du notaire (soumis à 10% de TVA), ainsi que les débours administratifs.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Un ressortissant étranger peut-il acquérir une propriété au Maroc ?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Oui, absolument. Les étrangers peuvent acheter librement en pleine propriété tout appartement, villa ou riad situé en zone urbaine. Pour les terrains ou villas situés en zone rurale ou agricole (par exemple dans certaines parties de la périphérie de Marrakech), l'obtention préalable d'une VNA (Vocation Non Agricole) est requise. Elkoutami Immobilier prend en charge l'intégralité du dossier administratif de VNA.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Comment fonctionne le rapatriement des fonds pour les non-résidents ?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            En vertu de la réglementation de l'Office des Changes marocain, lorsque l'achat est financé par un virement en devises étrangères crédité sur un compte en dirhams convertibles au Maroc, l'investisseur bénéficie d'une <strong>garantie intégrale et illimitée de rapatriement</strong> du capital investi et des plus-values réalisées en cas de revente future.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTACT & VISIT REQUEST
+       ========================================================================== -->
+  <section class="section-estimation" id="contact" style="background: var(--bg-sand);">
+    <div class="container">
+      <div class="estimation-card" style="box-shadow: var(--shadow-lg);">
+        <div class="estimation-visual" style="background: linear-gradient(135deg, rgba(10, 25, 47, 0.95), rgba(10, 25, 47, 0.98)), url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80') center/cover;">
+          <div>
+            <span class="section-tag" style="background: rgba(255,255,255,0.15); color: var(--gold-light); border-color: rgba(255,255,255,0.3);">Rencontrons-nous</span>
+            <h2 style="font-family: var(--font-serif); font-size: 2.2rem; margin-top: 10px; line-height: 1.2;">
+              Confiez votre projet à l'excellence Elkoutami
+            </h2>
+            <p style="color: #CBD5E1; font-size: 0.95rem; margin-top: 14px; line-height: 1.6;">
+              Que vous souhaitiez acquérir une demeure d'exception, céder votre patrimoine ou valoriser un portefeuille foncier au Maroc, notre direction vous accueille en toute discrétion.
+            </p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 30px;">
+            <div style="display: flex; align-items: center; gap: 12px; color: #CBD5E1; font-size: 0.9rem;">
+              <i class="fa-solid fa-phone" style="color: var(--gold);"></i>
+              <span>+212 (0) 5 22 98 76 54 (Standard Casablanca)</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; color: #CBD5E1; font-size: 0.9rem;">
+              <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i>
+              <span>+212 (0) 6 61 12 34 56 (Direct Direction)</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; color: #CBD5E1; font-size: 0.9rem;">
+              <i class="fa-solid fa-envelope" style="color: var(--gold);"></i>
+              <span>direction@elkoutami-immobilier.ma</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="estimation-form-wrap">
+          <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--primary); margin-bottom: 20px;">
+            Demande de rendez-vous ou d'informations
+          </h3>
+
+          <form onsubmit="handleContactSubmit(event)">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label>Nom complet *</label>
+                <input type="text" class="form-control" required placeholder="Votre nom et prénom">
+              </div>
+              <div class="form-group">
+                <label>Numéro de téléphone *</label>
+                <input type="tel" class="form-control" required placeholder="+212 6... / +33 6...">
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label>Adresse e-mail *</label>
+                <input type="email" class="form-control" required placeholder="votre.email@domaine.com">
+              </div>
+              <div class="form-group">
+                <label>Nature du projet</label>
+                <select class="form-control">
+                  <option>Acquérir une propriété de prestige</option>
+                  <option>Vendre ma propriété au Maroc</option>
+                  <option>Mise en location ou gestion locative</option>
+                  <option>Investisseur MRE ou international</option>
+                  <option>Accès au catalogue confidentiel Off-Market</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Votre message ou critères spécifiques</label>
+              <textarea class="form-control" rows="4" placeholder="Détaillez vos souhaits (ville privilégiée, budget, superficie, équipements spécifiques...)"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-gold" style="width: 100%;">
+              <i class="fa-solid fa-paper-plane"></i> Envoyer ma demande confidentielle
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Col 1: Brand -->
+        <div>
+          <div class="brand-logo" style="margin-bottom: 12px;">
+            <div class="logo-symbol">E</div>
+            <div class="logo-text">
+              <span class="logo-title" style="font-size: 1.25rem;">ELKOUTAMI<span>.</span></span>
+              <span class="logo-subtitle">Immobilier de Prestige • Maroc</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">
+            Cabinet de référence pour l'immobilier d'exception et la gestion de patrimoine au Maroc. Membre de l'Association des Agences Immobilières Agréées du Maroc.
+          </p>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div>
+          <h4 class="footer-heading">Biens de Prestige</h4>
+          <ul class="footer-links">
+            <li><a href="#catalogue" class="footer-link">Villas de luxe Casablanca</a></li>
+            <li><a href="#catalogue" class="footer-link">Riads & Palais Marrakech</a></li>
+            <li><a href="#catalogue" class="footer-link">Penthouses Triangle d'Or</a></li>
+            <li><a href="#catalogue" class="footer-link">Demeures diplomatiques Souissi</a></li>
+            <li><a href="#catalogue" class="footer-link">Propriétés front de mer Tanger</a></li>
+            <li><a href="#catalogue" class="footer-link">Programmes Neufs & VEFA</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div>
+          <h4 class="footer-heading">Services Spécialisés</h4>
+          <ul class="footer-links">
+            <li><a href="#estimation" class="footer-link">Estimation gratuite certifiée</a></li>
+            <li><a href="#simulateur" class="footer-link">Simulateur crédit marocain</a></li>
+            <li><a href="#services" class="footer-link">Accompagnement MRE</a></li>
+            <li><a href="#services" class="footer-link">Autorisation VNA pour étrangers</a></li>
+            <li><a href="#services" class="footer-link">Vérification Conservation Foncière</a></li>
+            <li><a href="#services" class="footer-link">Gestion locative privée</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Agences -->
+        <div>
+          <h4 class="footer-heading">Nos Bureaux</h4>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span><strong>Casablanca :</strong> Angle Bd d'Anfa & Rue Jean Jaurès, Racine</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span><strong>Marrakech :</strong> Av. Mohammed VI, Quartier de l'Hivernage</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>+212 (0) 5 22 98 76 54</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>+212 (0) 6 61 12 34 56</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 <strong>Elkoutami Immobilier</strong> SARL AU. Tous droits réservés.
+        </div>
+        <div>
+          <a href="#" style="color: #94A3B8; margin-right: 18px;">Mentions Légales</a>
+          <a href="#" style="color: #94A3B8; margin-right: 18px;">Politique de Confidentialité</a>
+          <a href="#" style="color: #94A3B8;">Barème d'Honoraires</a>
+        </div>
+      </div>
+
+      <div class="footer-legal-notice">
+        Société immatriculée au Registre du Commerce de Casablanca N° 458921 • Patente 34102981 • Identifiant Fiscal (IF) 39821455 • ICE 002198734000089. Transaction sur immeubles et fonds de commerce garantie par banque marocaine accréditée.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL LIGHTBOX FOR PROPERTY DETAILS
+       ========================================================================== -->
+  <div class="modal-backdrop" id="propertyModal" onclick="if(event.target === this) closePropertyModal()">
+    <div class="modal-container">
+      <button class="modal-close-btn" onclick="closePropertyModal()" aria-label="Fermer la modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="modalContent">
+        <!-- Injected dynamically by js/main.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FAVORITES DRAWER
+       ========================================================================== -->
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="closeFavoritesDrawer()"></div>
+  <aside class="favorites-drawer" id="favoritesDrawer" aria-label="Panier de favoris">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <i class="fa-solid fa-heart" style="color: var(--gold); margin-right: 8px;"></i> Mes Propriétés Favoris
+      </div>
+      <button onclick="closeFavoritesDrawer()" style="color: #FFFFFF; font-size: 1.3rem;">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="drawer-body" id="drawerItemsList">
+      <!-- Injected by js/main.js -->
+    </div>
+
+    <div class="drawer-footer">
+      <button id="shareFavBtn" class="btn btn-gold" style="width: 100%; display: none;" onclick="shareFavoritesWhatsApp()">
+        <i class="fa-brands fa-whatsapp"></i> Envoyer ma sélection à un conseiller
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       FLOATING WHATSAPP & CONTACT BUTTON
+       ========================================================================== -->
+  <div class="floating-whatsapp">
+    <div class="whatsapp-popup-pill">
+      <span class="whatsapp-online-dot"></span>
+      <span>Conseiller Elkoutami disponible</span>
+    </div>
+    <a href="https://wa.me/212661123456?text=Bonjour%20Elkoutami%20Immobilier%2C%20je%20souhaite%20des%20renseignements%20sur%20vos%20propri%C3%A9t%C3%A9s." target="_blank" rel="noopener noreferrer" class="whatsapp-circle-btn" aria-label="Discuter sur WhatsApp" title="Contacter un conseiller sur WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-notice" id="appToast"></div>
+
+  <!-- Leaflet JS CDN -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Data & Main Scripts -->
+  <script src="js/properties-data.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      showToast('Votre demande a bien été transmise à la direction Elkoutami. Un conseiller vous contactera dans les plus brefs délais.');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
+
